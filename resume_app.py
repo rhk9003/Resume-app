@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 st.set_page_config(
     page_title="高如慧 | Growth Marketing Lead",
@@ -7,194 +8,213 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
+# 隱藏 Streamlit 默認元素
 st.markdown("""
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap');
-    
-    :root {
-        --text: #1a1a1a;
-        --text-light: #666;
-        --accent: #2563eb;
-        --border: #e5e5e5;
-    }
-    
-    .stApp {
-        background: white;
-        font-family: 'Noto Sans TC', sans-serif;
-    }
-    
-    .main .block-container {
-        padding: 0;
-        max-width: 210mm;
-        min-height: 297mm;
-        margin: 0 auto;
-        background: white;
-    }
-    
-    #MainMenu, footer, header, .stDeployButton {display: none !important;}
-    
-    .resume-container {
-        width: 210mm;
-        min-height: 297mm;
-        padding: 12mm 15mm;
-        margin: 0 auto;
-        background: white;
-        box-sizing: border-box;
-        font-size: 9pt;
-        line-height: 1.4;
-        color: var(--text);
-    }
-    
-    /* Header */
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        border-bottom: 2px solid var(--text);
-        padding-bottom: 8px;
-        margin-bottom: 10px;
-    }
-    
-    .name {
-        font-size: 24pt;
-        font-weight: 700;
-        letter-spacing: -1px;
-        margin: 0;
-    }
-    
-    .title {
-        font-size: 10pt;
-        color: var(--text-light);
-        margin-top: 2px;
-    }
-    
-    .contact {
-        text-align: right;
-        font-size: 8pt;
-        color: var(--text-light);
-        line-height: 1.5;
-    }
-    
-    /* Summary */
-    .summary {
-        font-size: 9pt;
-        color: var(--text);
-        margin-bottom: 10px;
-        line-height: 1.5;
-    }
-    
-    /* Section */
-    .section-title {
-        font-size: 10pt;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        border-bottom: 1px solid var(--border);
-        padding-bottom: 3px;
-        margin: 10px 0 6px;
-        color: var(--text);
-    }
-    
-    /* Two columns */
-    .two-col {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 15px;
-    }
-    
-    .three-col {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 8px;
-    }
-    
-    /* Experience */
-    .exp-item {
-        margin-bottom: 8px;
-    }
-    
-    .exp-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: baseline;
-    }
-    
-    .exp-company {
-        font-weight: 600;
-        font-size: 9pt;
-    }
-    
-    .exp-role {
-        font-size: 8pt;
-        color: var(--accent);
-    }
-    
-    .exp-date {
-        font-size: 7.5pt;
-        color: var(--text-light);
-    }
-    
-    .exp-desc {
-        font-size: 8pt;
-        color: var(--text-light);
-        margin-top: 2px;
-    }
-    
-    /* Skills */
-    .skills-list {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 4px 8px;
-    }
-    
-    .skill {
-        font-size: 8pt;
-        color: var(--text);
-        background: #f5f5f5;
-        padding: 2px 8px;
-        border-radius: 3px;
-    }
-    
-    /* Achievements */
-    .achievement-grid {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
-        margin: 6px 0;
-    }
-    
-    .achievement {
-        text-align: center;
-        padding: 6px;
-        background: #fafafa;
-        border-radius: 4px;
-    }
-    
-    .achievement-num {
-        font-size: 14pt;
-        font-weight: 700;
-        color: var(--accent);
-    }
-    
-    .achievement-label {
-        font-size: 7pt;
-        color: var(--text-light);
-    }
-    
-    /* Highlight */
-    .hl { color: var(--accent); font-weight: 500; }
-    
-    @media print {
-        .resume-container {
-            width: 210mm;
-            height: 297mm;
-            padding: 10mm 12mm;
-        }
-    }
+#MainMenu, footer, header, .stDeployButton {display: none !important;}
+.stApp {background: #f5f5f5;}
+.main .block-container {padding: 1rem; max-width: 900px;}
 </style>
+""", unsafe_allow_html=True)
 
-<div class="resume-container">
-    <!-- Header -->
+html_content = """
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: white;
+    color: #1a1a1a;
+    font-size: 9pt;
+    line-height: 1.4;
+}
+
+.resume {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 12mm 15mm;
+    margin: 0 auto;
+    background: white;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+
+.name {
+    font-size: 28pt;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.title {
+    font-size: 10pt;
+    color: #666;
+    margin-top: 4px;
+}
+
+.contact {
+    text-align: right;
+    font-size: 8pt;
+    color: #666;
+    line-height: 1.6;
+}
+
+.summary {
+    font-size: 9pt;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.summary b {
+    color: #2563eb;
+}
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.metric {
+    text-align: center;
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.metric-num {
+    font-size: 16pt;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.metric-label {
+    font-size: 7pt;
+    color: #666;
+    margin-top: 2px;
+}
+
+.section-title {
+    font-size: 10pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 4px;
+    margin: 14px 0 8px;
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.exp-item {
+    margin-bottom: 10px;
+}
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.exp-company {
+    font-weight: 600;
+    font-size: 9pt;
+}
+
+.exp-role {
+    font-size: 8pt;
+    color: #2563eb;
+    margin-top: 1px;
+}
+
+.exp-date {
+    font-size: 7.5pt;
+    color: #999;
+}
+
+.exp-desc {
+    font-size: 8pt;
+    color: #555;
+    margin-top: 3px;
+    line-height: 1.5;
+}
+
+.hl {
+    color: #2563eb;
+    font-weight: 500;
+}
+
+.skill-group-title {
+    font-weight: 600;
+    font-size: 8pt;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.skill {
+    font-size: 7.5pt;
+    background: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: #444;
+}
+
+.footer {
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 1px solid #e5e5e5;
+    font-size: 8pt;
+    color: #666;
+    text-align: center;
+}
+
+.footer b {
+    color: #333;
+}
+
+@media print {
+    .resume {
+        width: 210mm;
+        height: 297mm;
+        padding: 10mm 12mm;
+    }
+}
+</style>
+</head>
+<body>
+<div class="resume">
     <div class="header">
         <div>
             <div class="name">高如慧</div>
@@ -208,32 +228,29 @@ st.markdown("""
         </div>
     </div>
     
-    <!-- Summary -->
     <div class="summary">
         擅長以<b>結構化策略、SEO、成效型投放與 AI 自動化</b>建立可複製的成長引擎。0→1 品牌打造（POPRORO 8個月達月營收800萬）、SEO 統治級成果（MacLove 蘋果二手全站關鍵字 Google 第1名）、代操流程自動化（-66%）。已協助 10+ 品牌建立穩定成長模型。
     </div>
     
-    <!-- Key Metrics -->
-    <div class="achievement-grid">
-        <div class="achievement">
-            <div class="achievement-num">800萬</div>
-            <div class="achievement-label">月營收 (8個月達成)</div>
+    <div class="metrics">
+        <div class="metric">
+            <div class="metric-num">800萬</div>
+            <div class="metric-label">月營收 (8個月達成)</div>
         </div>
-        <div class="achievement">
-            <div class="achievement-num">ROAS 5</div>
-            <div class="achievement-label">穩定投放成效</div>
+        <div class="metric">
+            <div class="metric-num">ROAS 5</div>
+            <div class="metric-label">穩定投放成效</div>
         </div>
-        <div class="achievement">
-            <div class="achievement-num">#1</div>
-            <div class="achievement-label">Google SEO 排名</div>
+        <div class="metric">
+            <div class="metric-num">#1</div>
+            <div class="metric-label">Google SEO 排名</div>
         </div>
-        <div class="achievement">
-            <div class="achievement-num">-66%</div>
-            <div class="achievement-label">代操時間縮減</div>
+        <div class="metric">
+            <div class="metric-num">-66%</div>
+            <div class="metric-label">代操時間縮減</div>
         </div>
     </div>
     
-    <!-- Experience -->
     <div class="section-title">工作經歷</div>
     
     <div class="two-col">
@@ -291,13 +308,12 @@ st.markdown("""
         </div>
     </div>
     
-    <!-- Skills & Expertise -->
     <div class="section-title">專業技能</div>
     
     <div class="three-col">
         <div>
-            <div style="font-weight: 600; font-size: 8pt; margin-bottom: 4px;">Growth & Strategy</div>
-            <div class="skills-list">
+            <div class="skill-group-title">Growth & Strategy</div>
+            <div class="skills">
                 <span class="skill">0→1 品牌架構</span>
                 <span class="skill">成長策略</span>
                 <span class="skill">LTV/CAC</span>
@@ -305,8 +321,8 @@ st.markdown("""
             </div>
         </div>
         <div>
-            <div style="font-weight: 600; font-size: 8pt; margin-bottom: 4px;">Digital Marketing</div>
-            <div class="skills-list">
+            <div class="skill-group-title">Digital Marketing</div>
+            <div class="skills">
                 <span class="skill">FB/Google Ads</span>
                 <span class="skill">SEO</span>
                 <span class="skill">LINE OA</span>
@@ -314,8 +330,8 @@ st.markdown("""
             </div>
         </div>
         <div>
-            <div style="font-weight: 600; font-size: 8pt; margin-bottom: 4px;">Tools & Platform</div>
-            <div class="skills-list">
+            <div class="skill-group-title">Tools & Platform</div>
+            <div class="skills">
                 <span class="skill">GA/GSC</span>
                 <span class="skill">Shopline</span>
                 <span class="skill">91APP</span>
@@ -324,26 +340,26 @@ st.markdown("""
         </div>
     </div>
     
-    <div class="three-col" style="margin-top: 6px;">
+    <div class="three-col" style="margin-top: 8px;">
         <div>
-            <div style="font-weight: 600; font-size: 8pt; margin-bottom: 4px;">AI & Automation</div>
-            <div class="skills-list">
+            <div class="skill-group-title">AI & Automation</div>
+            <div class="skills">
                 <span class="skill">AI 內容產製</span>
                 <span class="skill">Vibe Coding</span>
                 <span class="skill">自動化診斷</span>
             </div>
         </div>
         <div>
-            <div style="font-weight: 600; font-size: 8pt; margin-bottom: 4px;">E-commerce & OMO</div>
-            <div class="skills-list">
+            <div class="skill-group-title">E-commerce & OMO</div>
+            <div class="skills">
                 <span class="skill">全通路營運</span>
                 <span class="skill">CDP 導入</span>
                 <span class="skill">會員經營</span>
             </div>
         </div>
         <div>
-            <div style="font-weight: 600; font-size: 8pt; margin-bottom: 4px;">Management</div>
-            <div class="skills-list">
+            <div class="skill-group-title">Management</div>
+            <div class="skills">
                 <span class="skill">團隊管理</span>
                 <span class="skill">跨部門整合</span>
                 <span class="skill">SOP 建立</span>
@@ -351,7 +367,6 @@ st.markdown("""
         </div>
     </div>
     
-    <!-- Key Projects -->
     <div class="section-title">代表專案</div>
     
     <div class="two-col">
@@ -365,9 +380,12 @@ st.markdown("""
         </div>
     </div>
     
-    <!-- Footer -->
-    <div style="margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--border); font-size: 8pt; color: var(--text-light); text-align: center;">
+    <div class="footer">
         <b>希望職稱</b>：行銷經理 ・ 數位行銷經理 ・ 電商品牌經理 ｜ <b>可上班日</b>：錄取後兩週 ｜ <b>希望地點</b>：台北市、新北市
     </div>
 </div>
-""", unsafe_allow_html=True)
+</body>
+</html>
+"""
+
+components.html(html_content, height=1150, scrolling=True)
