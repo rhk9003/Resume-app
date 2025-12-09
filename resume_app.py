@@ -1,3 +1,25 @@
+import streamlit as st
+import streamlit.components.v1 as components
+
+st.set_page_config(
+    page_title="高如慧 | Growth Marketing Lead",
+    page_icon="📄",
+    layout="wide",
+    initial_sidebar_state="collapsed"
+)
+
+# 隱藏 Streamlit 預設元素
+st.markdown("""
+<style>
+#MainMenu, footer, header, .stDeployButton {display: none !important;}
+.stApp {background: #f5f5f5;}
+.main .block-container {padding: 1rem; max-width: 900px;}
+</style>
+""", unsafe_allow_html=True)
+
+# ==========================
+# HTML 版履歷
+# ==========================
 html_content = """
 <!DOCTYPE html>
 <html>
@@ -169,6 +191,7 @@ body {
 }
 </style>
 </head>
+
 <body>
 <div class="resume">
 
@@ -187,7 +210,8 @@ body {
 
     <div class="summary">
         以「結構化策略＋SEO＋成效型投放＋AI 自動化」建立可複製的成長系統。
-        曾主導 POPRORO 0→1（8 個月達成月營收 <b>800 萬</b>）、推動 MacLove「蘋果二手」核心關鍵字取得 Google 首位，並以自動化流程讓代操時間下降約 <b>66%</b>。累積服務保健、美妝、3C、服飾、醫美等 10+ 品牌。
+        曾主導 POPRORO 0→1（8 個月達成月營收 <b>800 萬</b>）、推動 MacLove「蘋果二手」核心關鍵字取得 Google 首位，
+        並以自動化流程讓代操時間下降約 <b>66%</b>。累積服務保健、美妝、3C、服飾、醫美等 10+ 品牌。
     </div>
 
     <div class="metrics">
@@ -346,29 +370,4 @@ body {
 
     <div class="two-col">
         <div class="exp-item">
-            <div class="exp-company">🎯 AI 行銷指揮中心</div>
-            <div class="exp-desc">
-                整合 SEO、廣告、社群、競品監測的一站式工具。日常維運流程自動化後，
-                每週例行檢查時間下降約 50%。已應用於保健／美妝／服飾／醫美等品牌。
-            </div>
-        </div>
-
-        <div class="exp-item">
-            <div class="exp-company">📈 可複製的 Growth 流程</div>
-            <div class="exp-desc">
-                「素材迭代 → 漏斗優化 → 一頁式轉換 → 再行銷矩陣」的成長流程，
-                用於服飾、保健食品、3C 等品類，穩定達成 ROAS 4–5。
-            </div>
-        </div>
-    </div>
-
-    <div class="footer">
-        <b>希望職稱</b>：行銷經理・數位行銷經理・電商品牌經理 ｜ 
-        <b>可上班日</b>：錄取後兩週 ｜ 
-        <b>希望地點</b>：台北市／新北市
-    </div>
-
-</div>
-</body>
-</html>
-"""
+            <div class="exp-company">🎯 AI 行銷指揮中心</
