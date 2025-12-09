@@ -1,3 +1,175 @@
+html_content = """
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: white;
+    color: #1a1a1a;
+    font-size: 9pt;
+    line-height: 1.4;
+}
+
+.resume {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 12mm 15mm;
+    margin: 0 auto;
+    background: white;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    border-bottom: 2px solid #1a1a1a;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+
+.name {
+    font-size: 28pt;
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.title {
+    font-size: 10pt;
+    color: #666;
+    margin-top: 4px;
+}
+
+.contact {
+    text-align: right;
+    font-size: 8pt;
+    color: #666;
+    line-height: 1.6;
+}
+
+.summary {
+    font-size: 9pt;
+    margin-bottom: 12px;
+    line-height: 1.6;
+}
+
+.summary b { color: #2563eb; }
+
+.metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    margin: 12px 0;
+}
+
+.metric {
+    text-align: center;
+    padding: 8px;
+    background: #f8f9fa;
+    border-radius: 6px;
+}
+
+.metric-num {
+    font-size: 16pt;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.metric-label {
+    font-size: 7pt;
+    color: #666;
+    margin-top: 2px;
+}
+
+.section-title {
+    font-size: 10pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #e5e5e5;
+    padding-bottom: 4px;
+    margin: 14px 0 8px;
+}
+
+.two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.three-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+.exp-item { margin-bottom: 10px; }
+
+.exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.exp-company { font-weight: 600; font-size: 9pt; }
+.exp-role { font-size: 8pt; color: #2563eb; margin-top: 1px; }
+.exp-date { font-size: 7.5pt; color: #999; }
+
+.exp-desc {
+    font-size: 8pt;
+    color: #555;
+    margin-top: 3px;
+    line-height: 1.5;
+}
+
+.hl { color: #2563eb; font-weight: 500; }
+
+.skill-group-title {
+    font-weight: 600;
+    font-size: 8pt;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+
+.skill {
+    font-size: 7.5pt;
+    background: #f0f0f0;
+    padding: 3px 8px;
+    border-radius: 3px;
+    color: #444;
+}
+
+.footer {
+    margin-top: 12px;
+    padding-top: 8px;
+    border-top: 1px solid #e5e5e5;
+    font-size: 8pt;
+    color: #666;
+    text-align: center;
+}
+
+.footer b { color: #333; }
+
+@media print {
+    .resume {
+        width: 210mm;
+        height: 297mm;
+        padding: 10mm 12mm;
+    }
+}
+</style>
+</head>
+<body>
 <div class="resume">
 
     <div class="header">
@@ -15,32 +187,20 @@
 
     <div class="summary">
         以「結構化策略＋SEO＋成效型投放＋AI 自動化」建立可複製的成長系統。
-        曾主導 POPRORO 0→1（8 個月達成月營收 <b>800 萬</b>）、推動 MacLove「蘋果二手」核心關鍵字取得 Google 首位，並將代操流程自動化、維運時間縮減約 <b>66%</b>。累積服務保健、美妝、3C、服飾、醫美等 10+ 品牌。
+        曾主導 POPRORO 0→1（8 個月達成月營收 <b>800 萬</b>）、推動 MacLove「蘋果二手」核心關鍵字取得 Google 首位，並以自動化流程讓代操時間下降約 <b>66%</b>。累積服務保健、美妝、3C、服飾、醫美等 10+ 品牌。
     </div>
 
     <div class="metrics">
-        <div class="metric">
-            <div class="metric-num">800萬</div>
-            <div class="metric-label">POPRORO 月營收（8 個月）</div>
-        </div>
-        <div class="metric">
-            <div class="metric-num">ROAS 5</div>
-            <div class="metric-label">長期投放模型（保健食品）</div>
-        </div>
-        <div class="metric">
-            <div class="metric-num">#1</div>
-            <div class="metric-label">「蘋果二手」關鍵字（Google）</div>
-        </div>
-        <div class="metric">
-            <div class="metric-num">-66%</div>
-            <div class="metric-label">代操維運時間（自動化後）</div>
-        </div>
+        <div class="metric"><div class="metric-num">800萬</div><div class="metric-label">POPRORO 月營收（8 個月）</div></div>
+        <div class="metric"><div class="metric-num">ROAS 5</div><div class="metric-label">保健食品投放模型</div></div>
+        <div class="metric"><div class="metric-num">#1</div><div class="metric-label">蘋果二手（Google）</div></div>
+        <div class="metric"><div class="metric-num">-66%</div><div class="metric-label">代操維運時間</div></div>
     </div>
 
     <div class="section-title">工作經歷</div>
 
     <div style="font-size:7.5pt; color:#666; margin-top:-4px; margin-bottom:6px;">
-        近年以專案型、重整任務為主，多為 6–12 個月的密集推動角色。
+        近年主要在不同公司負責成長任務與系統重整，多為密集推動期後完成階段目標即離開。
     </div>
 
     <div class="two-col">
@@ -64,8 +224,8 @@
                     <span class="exp-date">2025/5 ~ 2025/10</span>
                 </div>
                 <div class="exp-desc">
-                    B 群 Non-Branding SEO 佔搜尋前 5 名中 3 名。建立穩定 <span class="hl">ROAS 5</span> 的
-                    long-term 投放模型。AI 輔助 GTM，使新品年度計畫一週完成。
+                    Non-Branding SEO（B 群）佔前 5 名中 3 名。建立穩定 <span class="hl">ROAS 5</span>。
+                    新品年度計畫透過 AI GTM 一週完成。
                 </div>
             </div>
 
@@ -75,8 +235,8 @@
                     <span class="exp-date">2024/8 ~ 2025/3</span>
                 </div>
                 <div class="exp-desc">
-                    「蘋果二手」與相關型號關鍵字取得 Google 首位。Shopee 單月 89 萬（YoY +324%）。
-                    投放成效由 ROAS 1 提升至約 3。
+                    「蘋果二手」相關關鍵字取得 Google 第 1 名。Shopee 單月 89 萬（YoY +324%）。
+                    投放 ROAS 由 1 提升至 3。
                 </div>
             </div>
 
@@ -90,8 +250,7 @@
                     <span class="exp-date">2023/12 ~ 2024/7</span>
                 </div>
                 <div class="exp-desc">
-                    OMO 整合後電商營收 <span class="hl">YoY +600%</span>。LINE 會員 +700%，
-                    回購率 10%→25%。
+                    OMO 併入後電商營收 <span class="hl">YoY +600%</span>。LINE 會員 +700%，回購率 10%→25%。
                 </div>
             </div>
 
@@ -101,8 +260,8 @@
                     <span class="exp-date">2022/10 ~ 2023/11</span>
                 </div>
                 <div class="exp-desc">
-                    打造明星商品「小白鞋」單月 <span class="hl">490+ 雙</span>，整體年營收 +30%。ROAS 維持 5+。
-                    負責 CDP 導入與轉換流程優化。
+                    打造「小白鞋」單月 <span class="hl">490+ 雙</span>。整體年營收 +30%。ROAS 維持 5+。
+                    擔任 CDP 導入與轉換流程改善。
                 </div>
             </div>
 
@@ -113,7 +272,7 @@
                 </div>
                 <div class="exp-desc">
                     主導 POPRORO 0→1，8 個月達成月營收 <span class="hl">800 萬</span>，淨利率 15–20%。
-                    管理 6 人團隊＋月預算約 400 萬。擔任官方講師，授課 50+ 場。
+                    管理 6 人團隊與月預算約 400 萬。授課 meepShop 官方講師 50+ 場。
                 </div>
             </div>
 
@@ -210,3 +369,6 @@
     </div>
 
 </div>
+</body>
+</html>
+"""
